@@ -60,9 +60,6 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 	
-	//ofSetColor(225);
-	ofDrawBitmapString("AUDIO INPUT EXAMPLE", 32, 32);
-	ofDrawBitmapString("press 's' to unpause the audio\n'e' to pause the audio", 31, 92);
 	
 	ofNoFill();
 	
@@ -70,53 +67,53 @@ void testApp::draw(){
 	myPos = (pitchIn * 100) / 3000 ;  // x position on screen
 	
 	ofSetHexColor(0x000000);
-	ofDrawBitmapString( "pitch is : " + ofToString(myPos) + "\namplitude is : " + ofToString(scaledVol * 100.0, 0), 14,ofGetHeight()-20);
+	ofDrawBitmapString( "pitch is : " + ofToString(myPos) + "\namplitude is : " + ofToString(scaledVol * 100.0, 0), 32,ofGetHeight()-20);
 	
-	ofDrawBitmapString("Scaled average vol (0-100): " + ofToString(scaledVol * 100.0, 0), 4, 18);
+	ofDrawBitmapString("Scaled average vol (0-100): " + ofToString(scaledVol * 100.0, 0), 32, 18);
 
-	if (myPos <= 10) {
+	if (myPos <= 10.0f) {
 		ofSetColor(20, 249, 135);
 	}
-	else if (myPos >= 11 || myPos <= 20){
-		ofSetColor(242, 81, 81);
+	else if (myPos > 10.0f && myPos < 20.0f){
+		ofSetColor(90, 81, 81);
 	}
-	else if ( myPos >= 21 || myPos <= 30) {
+	else if ( myPos > 20.0f && myPos <= 30.0f) {
 		ofSetColor(180, 16, 0);
 	}
-	else if ( myPos >= 31 || myPos <= 40 ) {
+	else if ( myPos >= 31.0f && myPos <= 40.0f ) {
 		ofSetColor(155, 46, 18);
 	}
-	else if ( myPos >= 41 || myPos <= 50 ) {
+	else if ( myPos >= 41.0f && myPos <= 50.0f ) {
 		ofSetColor(18, 255,140);
 	}
-	else if ( myPos >= 51 || myPos <= 60 ) {
+	else if ( myPos >= 51.0f && myPos <= 60.0f ) {
 		ofSetColor(90, 255, 19);
 	}
-	else if ( myPos >= 61 || myPos <= 70 ) {
+	else if ( myPos >= 61.0f && myPos <= 70.0f ) {
 		ofSetColor(81, 220, 44);
 	}
-	else if ( myPos >= 71 || myPos <= 80 ) {
+	else if ( myPos >= 71.0f && myPos <= 80.0f ) {
 		ofSetColor(38, 158, 254);
 	}
-	else if ( myPos >= 81 || myPos <= 90 ) {
+	else if ( myPos >= 81.0f && myPos <= 90.0f ) {
 		ofSetColor(47, 38, 233);
 	}
-	else if ( myPos >= 91 || myPos <= 100 ) {
+	else if ( myPos >= 91.0f && myPos <= 100.0f ) {
 		ofSetColor(233, 125, 38);
 	}
-	else if ( myPos >= 101 || myPos <= 110 ) {
+	else if ( myPos >= 101.0f && myPos <= 110.0f ) {
 		ofSetColor(233, 38, 116);
 	}
-	else if ( myPos >= 111 || myPos <= 120 ) {
+	else if ( myPos >= 111.0f && myPos <= 120.0f ) {
 		ofSetColor(114, 4, 48);
 	}
-	else if ( myPos >= 121 || myPos <= 130 ) {
+	else if ( myPos >= 121.0f && myPos <= 130.0f ) {
 		ofSetColor(228, 216, 79);
 	}
-	else if ( myPos >= 131 || myPos <= 140 ) {
+	else if ( myPos >= 131.0f && myPos <= 140.0f ) {
 		ofSetColor(228, 114, 79);
 	}
-	else if ( myPos >= 141 ) {
+	else if ( myPos >= 141.0f ) {
 		ofSetColor(233, 255, 0);
 	}
 	

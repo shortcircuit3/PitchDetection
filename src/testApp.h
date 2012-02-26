@@ -6,6 +6,10 @@
 #include "ofMain.h"
 //#include "ofAddons.h"
 #include "ofxAubioAnalyzer.h"
+#include <iostream>
+#include <vector>
+
+using namespace std;
 
 class testApp : public ofSimpleApp{
 	
