@@ -28,53 +28,39 @@ class testApp : public ofSimpleApp{
 		void audioReceived		(float * input, int bufferSize, int nChannels);
 	
 
-	//(float *) left;
-	//(float *) right;
-	 float* left;
-	 float* right;
-	vector <float> volHistory;
-	
-	float curLeft;
-	float curRight;
-	
-	
-	
-	int 	bufferCounter;
-	int 	drawCounter;
-	
-	float smoothedVol;
-	float scaledVol;
-	
-	ofSoundStream soundStream;
+		//(float *) left;
+		//(float *) right;
+		float* left;
+		float* right;
+		vector <float> volHistory;
 		
-	
+		float	curLeft;
+		float	curRight;
+		
+		int		bufferCounter;
+		int		drawCounter;
+		
+		float	smoothedVol;
+		float	scaledVol;
+		float	adjustVol;
+		
+		ofSoundStream soundStream;
 		ofxAubioAnalyzer AA;
 	
 		ofTrueTypeFont dinFont;
 	
+		bool  	bFullscreen;
 	
-		int posX;
-		int posY;
-		float height;
-		float width;
-		float myPos;
+		float	height;
+		float	width;
+		float	myPos;
 	
-	
-		float pitchMin;
-		float pitchMax;
-		float pitchIn;
-		float pitchPercent;
-		float finalPitch;
+		float	pitchIn;
+		float	pitchPercent;
+		float	finalPitch;
 
-	
-		float vol;
-		float calcVol;
-	
-		int r;
-		int g;
-		int b;
-
-
+		float	vol;
+		float	calcVol;
 	
 };
 

@@ -4,7 +4,7 @@
 //--------------------------------------------------------------
 void testApp::setup(){	 
 	
-	ofBackground(128);	
+	ofBackground(255);	
 	ofSetCircleResolution(200);
 	
 	// 0 output channels, 
@@ -33,6 +33,8 @@ void testApp::setup(){
 	height = ofGetHeight();
 	width = ofGetWidth();
 
+	bFullscreen	= 0;
+	adjustVol = 0.5;
 	
 	
 	
@@ -67,9 +69,10 @@ void testApp::draw(){
 	myPos = (pitchIn * 100) / 3000 ;  // x position on screen
 	
 	ofSetHexColor(0x000000);
-	ofDrawBitmapString( "pitch is : " + ofToString(myPos) + "\namplitude is : " + ofToString(scaledVol * 100.0, 0), 32,ofGetHeight()-20);
+	//ofDrawBitmapString( "pitch is : " + ofToString(myPos) + "\namplitude is : " + ofToString(scaledVol * 100.0, 0), 32,ofGetHeight()-20);
+	ofDrawBitmapString("alexmilesdesign.com \npitch 1.1\n\nf = toggle fullscreen\nn = more sensitive \nm = less sensitive", 20, 30);
 	
-	ofDrawBitmapString("Scaled average vol (0-100): " + ofToString(scaledVol * 100.0, 0), 32, 18);
+	//ofDrawBitmapString("Scaled average vol (0-100): " + ofToString(scaledVol * 100.0, 0), 32, 18);
 
 	if (myPos <= 10.0f) {
 		ofSetColor(20, 249, 135);
@@ -145,8 +148,8 @@ void testApp::audioReceived (float * input, int bufferSize, int nChannels){
 	
 	// samples are "interleaved"
 	for (int i = 0; i < bufferSize; i++){
-		left[i]		= input[i*2]*0.5;		
-		right[i]	= input[i*2+1]*0.5;
+		left[i]		= input[i*2]* adjustVol;		
+		right[i]	= input[i*2+1]* adjustVol;
 		
 		curVol += left[i] * left[i];
 		curVol += right[i] * right[i];
@@ -171,6 +174,31 @@ void testApp::audioReceived (float * input, int bufferSize, int nChannels){
 
 //--------------------------------------------------------------
 void testApp::keyPressed  (int key){ 
+	
+	if(key == 'f'){
+		
+		bFullscreen = !bFullscreen;
+		
+		if(!bFullscreen){
+			ofSetWindowShape(1024,728);
+			ofSetFullscreen(false);
+			
+		} else if(bFullscreen == 1){
+			ofSetFullscreen(true);
+		}
+	}
+	
+	switch (key){
+		case 'n':	
+			adjustVol += .05;
+			if (adjustVol > 1.0f) adjustVol = 1.0f;
+			break;
+		case 'm':
+			adjustVol -= .05;
+			if (adjustVol < 0.0f) adjustVol = 0.0f;
+			break;
+	}
+	
 	
 }
 
