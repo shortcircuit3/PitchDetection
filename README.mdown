@@ -1,4 +1,4 @@
 Pitch Detection Visualizer
 ----
 
-Vizualized pitch and volume
+Modified one of OF's examples to visualize volume and pitch using color and size.
